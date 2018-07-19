@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ví dụ về v-if và v-show - Allaravel.com</title>
+</head>
+<body>
+    <div id="app1">
+        <h1 v-if="user1.gender == 1 && user1.name != null" style="color: red;">Chào anh {{ user1.name }}</h1>
+        <h1 v-else-if="user1.gender == 2 && user1.name != null" style="color: green">Chào chị {{ user1.name }}</h1>
+        <h1 v-else style="color: blue">Ví dụ về v-if</h1>
+        <br>
+        <label>Họ và tên</label>
+        <input v-model="user1.name" placeholder="Nhập vào tên bạn">
+        <br>
+        <label>Giới tính</label>
+        <select v-model="user1.gender">
+            <option value="1">Nam</option>
+            <option value="2">Nữ</option>
+        </select>
+    </div>
+    <div id="app2">
+        <h1 v-show="user2.gender == 1 && user2.name != null" style="color: red;">Chào anh {{ user2.name }}</h1>
+        <h1 v-show="user2.gender == 2 && user2.name != null" style="color: green">Chào chị {{ user2.name }}</h1>
+        <h1 v-show style="color: blue">Ví dụ về v-show</h1>
+        <br>
+        <label>Họ và tên</label>
+        <input v-model="user2.name" placeholder="Nhập vào tên bạn">
+        <br>
+        <label>Giới tính</label>
+        <select v-model="user2.gender">
+            <option value="1">Nam</option>
+            <option value="2">Nữ</option>
+        </select>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app1',
+            data: {
+                user1: {}
+            }
+        })
+        new Vue({
+            el: '#app2',
+            data: {
+                user2: {}
+            }
+        })
+    </script>
+</body>
+</html>
