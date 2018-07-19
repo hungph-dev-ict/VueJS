@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Bài tập Vue JS </title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="user.name == 'test@allaravel.com' && user.password == '123456'"><h1> Bạn đã đăng nhập thành công </h1></div>
+        <div v-else-if="user.name != null || user.password != null"><h1> Thông tin đăng nhập sai, vui lòng thử lại </h1></div>
+        <div v-else><h1> Đây là bài tập Vue JS </h1></div>
+        <form>
+            <div class="form-group">
+                <label>Địa chỉ email:</label>
+                <input type="text" name="email" v-model="user.name">
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu:</label>
+                <input type="password" name="password" v-model="user.password">
+            </div>
+        </form>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                user: {},
+            }
+        })
+    </script>
+</body>
+</html>

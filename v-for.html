@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bài tập sử dụng v-if Vuejs sử dụng Bootstrap- Allaravel.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="alert alert-success" role="alert" v-if="user.email == 'test@allaravel.com' && user.password == '123456'">
+            Chào mừng {{ user.email }} đã đăng nhập thành công!
+        </div>
+        <div class="alert alert-danger" role="alert" v-if="(user.email != 'test@allaravel.com' && user.email != null) || (user.password != '123456' && user.password != null)">
+            Thông tin đăng nhập sai, vui lòng thử lại!
+        </div>
+        <form v-if="user.email != 'test@allaravel.com' || user.password != '123456'">
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" v-model="user.email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" v-model="user.password">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                user: {}
+            }
+        })
+    </script>
+</body>
+</html>
